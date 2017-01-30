@@ -23,6 +23,6 @@ Things you may want to cover:
 
 * ...
 
-![Build Status](https://codeship.com/projects/129339e0-c933-0134-952e-3a0fd8dae151/status?branch=master)
+![Build Status](https://codeship.com/projects/d013c260-c948-0134-8c61-3ac979885949/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/froontown/sound_bug.png)
 ![Coverage Status](https://coveralls.io/repos/froontown/sound_bug/badge.png)
