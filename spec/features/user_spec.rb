@@ -2,7 +2,8 @@ require 'rails_helper'
 
 feature "user signs up for account" do
 
-  let (:user) { User.create(first_name: "Sonic", last_name: "The Hedgehog", username: "Sonic The Hedgehog", email: "sonic@hedgehog.com", password: "password") }
+  let (:user) { User.create(first_name: "Sonic", last_name: "The Hedgehog", username: "Sonic The Hedgehog",
+    email: "sonic@hedgehog.com", password: "password") }
 
   scenario "User successfully signs up" do
     visit "/users/sign_up"
@@ -12,6 +13,7 @@ feature "user signs up for account" do
     fill_in "Username", with: "Sonic The Hedgehog"
     fill_in "Email", with: "sonic@hedgehog.com"
     fill_in "Password", with: "password"
+    fill_in "Password confirmation", with: "password"
 
     click_on "Create Account"
     expect(page).to have_content "Welcome! You have signed up successfully."

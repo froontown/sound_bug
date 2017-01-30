@@ -4,7 +4,7 @@ class SongsController < ApplicationController
     if params[:term]
       @songs = Song.search(params[:term])
     else
-      @song = Song.all
+      @songs = Song.all
     end
     @song = Song.new
   end

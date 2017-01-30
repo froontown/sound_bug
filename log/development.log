@@ -930,3 +930,99 @@ app/views/songs/index.html.erb:4:in `_app_views_songs_index_html_erb__2352074214
   Rendered /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (47.1ms)
 Started PUT "/__web_console/repl_sessions/b58a30faf76f0fd515aa7669c43d32d8" for 127.0.0.1 at 2017-01-30 15:38:49 -0500
 Started PUT "/__web_console/repl_sessions/b58a30faf76f0fd515aa7669c43d32d8" for 127.0.0.1 at 2017-01-30 15:38:49 -0500
+Started PUT "/__web_console/repl_sessions/b58a30faf76f0fd515aa7669c43d32d8" for 127.0.0.1 at 2017-01-30 15:42:05 -0500
+Started PUT "/__web_console/repl_sessions/b58a30faf76f0fd515aa7669c43d32d8" for 127.0.0.1 at 2017-01-30 15:42:06 -0500
+Started GET "/" for 127.0.0.1 at 2017-01-30 15:44:49 -0500
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  Rendered songs/index.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    2:   <div class="songlist columns large-6 small-12">
+    3:     <h3>Sound Bug!</h3>
+    4:   
+    5:     <% @songs.each do |song| %>
+    6:     <p id="songs-index">
+    7:       <%= link_to song.name, song %>
+    8:     </p>
+  
+app/views/songs/index.html.erb:5:in `_app_views_songs_index_html_erb__2352074214085294562_70211245470300'
+  Rendering /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.7ms)
+  Rendering /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (44.8ms)
+Started PUT "/__web_console/repl_sessions/8f66bbf851024ac6927b0bd97778e569" for 127.0.0.1 at 2017-01-30 15:44:55 -0500
+Started PUT "/__web_console/repl_sessions/8f66bbf851024ac6927b0bd97778e569" for 127.0.0.1 at 2017-01-30 15:44:55 -0500
+Started GET "/" for 127.0.0.1 at 2017-01-30 15:45:20 -0500
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /Users/froontown/challenges/breakable-toy/sound_bug/app/controllers/application_controller.rb:6)
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 44ms (Views: 14.0ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-30 15:46:12 -0500
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  Rendered songs/index.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `empty?' for #<Song:0x007fb6a925be50>):
+    1: <div class="row container">
+    2:   <div class="songlist columns large-6 small-12">
+    3:     <h3>Sound Bug!</h3>
+    4:     <% if @song.empty? %>
+    5:     <p>No Songs!</p>
+    6:     <% end %>
+    7:     <% @songs.each do |song| %>
+  
+app/views/songs/index.html.erb:4:in `_app_views_songs_index_html_erb__2352074214085294562_70211249296560'
+  Rendering /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (14.0ms)
+  Rendering /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendering /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/froontown/.gem/ruby/2.2.5/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.7ms)
+Started GET "/" for 127.0.0.1 at 2017-01-30 15:46:19 -0500
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "songs"[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 20ms (Views: 15.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-01-30 15:52:53 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-30 15:52:53 -0500
+Processing by SongsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "songs"[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 22ms (Views: 17.8ms | ActiveRecord: 1.8ms)
+
+
