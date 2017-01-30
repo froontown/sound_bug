@@ -1,0 +1,19 @@
+<div class="row container">
+  <div class="columns large-6 small-12">
+
+<h1> <%= @song.name %> </h1>
+
+  <div id="bar-details">
+    <p> <%= @song.artist %> </p>
+  </div>
+
+  <div id="bar-details">
+      <p> <%= @bar.description %> </p>
+    <% end %>
+  </div>
+
+<% if @user.id == @song.user_id || @user.admin? %>
+  <div>
+    <%= link_to 'Edit Song', edit_song_path(@song) %>
+  </div>
+<% end %>

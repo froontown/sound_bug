@@ -1,0 +1,40 @@
+
+<div class="row container">
+  <div class="barlist columns large-6 small-12">
+    <h3>Sound Bug!</h3>
+    <% if @song.empty? %>
+    <p>No Songs!</p>
+    <% end %>
+    <% @songs.each do |song| %>
+    <p id="songs-index">
+      <%= link_to song.name, song %>
+    </p>
+    <% end %>
+  </div>
+
+  <div class="song-form columns large-6 small-12">
+    <h3>New Song Form</h3>
+    <%= form_for(@song) do |f| %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :artist %>
+      <%= f.text_field :artist %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit(value="Add Song") %>
+    </div>
+
+    <% end %>
+  </div>
+</div>
