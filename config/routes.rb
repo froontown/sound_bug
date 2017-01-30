@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :users, only: [:index, :show]
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
+
+  resources :songs, only: [:index, :show, :create, :edit, :update]
+
+  root "songs#index"
 end
