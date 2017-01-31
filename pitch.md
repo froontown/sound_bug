@@ -12,3 +12,8 @@
 - The backend will be handled through Rails and ActiveRecord, where User information will be stored
 - The larger overall goal for SoundBug isn't just to share songs, but to create little sound bites to nurture a creative, collaborative community
 - The goal for this project is to lay down the groundwork for future expansions in my endeavor to create what I currently imagine
+
+Notes:
+
+* Talk about college education
+* Get rid of transition phrases like "all the while," etc.
