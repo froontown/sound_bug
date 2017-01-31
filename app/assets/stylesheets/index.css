@@ -1,0 +1,18 @@
+.top-bar-left {
+  padding-left: 10px;
+}
+
+.top-bar {
+  background-color: #912b2b;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.active {
+  font-size: 50px;
+  color: green;
+}
+
+a {
+  color: black;
+}

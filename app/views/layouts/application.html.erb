@@ -5,17 +5,21 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
   <div class="top-bar">
     <div class="top-bar-left">
       <div class="nav">
-        <p class="active"><a href="/bars">Sound Bug</a></p>
+        <div class="title">
+          <p class="active"><a href="/songs">Sound Bug</a></p>
+        </div>
       </div>
     </div>
 
     <div class="top-bar-right">
-      <form id="search-form" action="/bars" accept-charset="UTF-8" method="get">
+      <form id="search-form" action="/songs" accept-charset="UTF-8" method="get">
         <ul class="menu">
           <li><input type="text" name="term" id="search-field" placeholder="Search"></li>
           <li><button type="submit" class="button" value="Search" id="search-button" data-disable-with="Search">Search</button></li>
