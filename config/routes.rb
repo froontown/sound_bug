@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
-  resources :songs, only: [:index, :show, :create, :edit, :update]
+  resources :songs
 
   root "songs#index"
 end

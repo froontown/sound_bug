@@ -3,13 +3,12 @@
 
 <h1> <%= @song.name %> </h1>
 
-  <div id="bar-details">
+  <div id="song-details">
     <p> <%= @song.artist %> </p>
   </div>
 
-  <div id="bar-details">
-      <p> <%= @bar.description %> </p>
-    <% end %>
+  <div id="song-details">
+    <p> <%= @song.description %> </p>
   </div>
 
 <% if @user.id == @song.user_id || @user.admin? %>
