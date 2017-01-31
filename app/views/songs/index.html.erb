@@ -6,7 +6,7 @@
     <% end %>
     <% @songs.each do |song| %>
     <p id="songs-index">
-      <%= link_to song.name, song %>
+      <%= link_to song.name, song %> by: <%= song.artist %>
     </p>
     <% end %>
   </div>

@@ -13,6 +13,6 @@
   color: green;
 }
 
-a {
-  color: black;
+a.title:link, a.green:visited, a.green:active {
+  color: white;
 }
