@@ -17,3 +17,28 @@ Notes:
 
 * Talk about college education
 * Get rid of transition phrases like "all the while," etc.
+
+***************************
+
+- Video games and music
+- Working at LucasArts = dream come true
+- Learned development process
+- Worked with like-minded peers who cherished the creative process and problem solving
+- Taught music on the side and continued to teach myself
+- Wanted to be more directly involved in the development process
+- Moved back from California and stumbled upon Launch
+- Natural extension from working in games and my passion for learning
+- After learning some rad stuff at Launch, had the idea that sums up like Twitter for Musicians called Soundbug
+- From previous experience, I'm following a similar structure and breaking down the project to smaller, manageable components
+- The first component is the social networking aspect, which is my breakable toy
+- Users will log in through Soundcloud and interact with a React-based front end for a dynamic user experience
+- Users can post, share, rate, and comment on songs to create a community of music lovers
+- Backend = Rails and ActiveRecord where User info will be stored
+- The overall goal for SoundBug isn't just to share songs, but to create sound bites to nurture a creative, collaborative community
+- My goal for this project has been to lay down the groundwork for future expansions in my endeavor to create when I imagine
+
+Notes:
+
+* What is a dynamic User experience? Why React? (Smoother experience)
+* Think like: one sentence describing the technology for non-tech, why you use that technology, what it does for your app
+* Try focusing your story from audio engineering to gaming to web development
