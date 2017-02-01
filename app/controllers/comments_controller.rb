@@ -39,7 +39,6 @@ class CommentsController < ApplicationController
   end
 
   def update
-    binding.pry
     @comment = Comment.find(params[:id])
     @song = @comment.song
 
