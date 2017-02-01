@@ -11,9 +11,9 @@
     <% end %>
   </div>
 
-  <button type="button" name="openModal"><a data-open="submitModal">New Song</a></button>
+  <button type="button" name="openModal"><a data-open="newSong">New Song</a></button>
 
-  <div class="reveal" id="submitModal" data-reveal>
+  <div class="reveal" id="newSong" data-reveal>
     <div class="song-form columns large-6 small-12">
       <h3>New Song Form</h3>
       <%= form_for(@song) do |f| %>
