@@ -12,6 +12,7 @@ class SongsController < ApplicationController
   def show
     @user = current_user
     @song = Song.find(params[:id])
+    @comments = @song.comments
   end
 
   def create
