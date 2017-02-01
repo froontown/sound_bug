@@ -16,3 +16,28 @@
     <%= link_to 'Edit Song', edit_song_path(@song) %>
   </div>
 <% end %>
+
+<h3>Comments:</h3>
+
+<div>
+  <% unless @song.comments.nil? %>
+    <ul>
+      <% @song.comments.each do |comment| %>
+        <% if @user.id == comment.user_id || @user.admin? %>
+          <li> <%= comment.body %> |
+            <%= link_to 'Edit', edit_song_comment_path(@song, comment) %> |
+            <%= link_to 'Delete', song_comment_path(@song, comment), method: :delete, params:{comment: comment.id}, data: {confirm: "Are you sure?"} %>
+            <h1 class="item-title" data-id="<%= comment.id.to_s %>" id="<%= comment.id.to_s %>"</h1>
+          </li>
+        <% else %>
+          <li> <%= comment.rating %> | <%= comment.body %> </li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
+  <div id="CommentList"></div>
+</div>
+
+<div>
+  <%= link_to "Add Comment", new_song_comment_path(@song) %>
+</div>
