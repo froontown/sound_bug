@@ -13,6 +13,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'devise'
 gem 'foundation-rails'
+gem 'carrierwave'
+gem "fog-aws"
 
 group :development do
   gem 'listen', '~> 3.0.5'
@@ -30,6 +32,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'dotenv'
+  gem "dotenv-rails"
 end
 
 group :production do
