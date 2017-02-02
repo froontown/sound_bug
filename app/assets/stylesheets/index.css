@@ -1,3 +1,9 @@
+body {
+  font-family: 'Jura', sans-serif;
+  background-color: #2d2a2a;
+  color: white;
+}
+
 .top-bar-left {
   padding-left: 10px;
 }
@@ -6,13 +12,19 @@
   background-color: #912b2b;
   font-weight: bold;
   font-size: 40px;
+  font-family: 'Fredoka One', sans-serif;
+  color: white;
 }
 
 .active {
   font-size: 50px;
-  color: green;
 }
 
-a.title:link, a.green:visited, a.green:active {
+a {
   color: white;
+  weight: bold;
+}
+
+.search-button {
+  font-family: 'Fredoka One', sans-serif;
 }
