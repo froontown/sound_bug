@@ -14,7 +14,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'foundation-rails'
 gem 'carrierwave'
-gem "fog-aws"
+gem "fog"
 
 group :development do
   gem 'listen', '~> 3.0.5'
