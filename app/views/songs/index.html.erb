@@ -1,6 +1,43 @@
 <div class="row container">
   <div class="songlist columns large-6 small-12">
-    <h3>Sound Bug!</h3>
+    <br>
+    <br>
+    <br>
+
+    <button type="button" name="openModal"><a data-open="newSong">New Song</a></button>
+
+    <div class="reveal" id="newSong" data-reveal>
+      <div class="song-form columns large-6 small-12">
+        <h3>New Song Form</h3>
+        <%= form_for(@song) do |f| %>
+
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :artist %>
+          <%= f.text_field :artist %>
+        </div>
+
+        <div class="field">
+          <%= f.label :description %>
+          <%= f.text_field :description %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit(value="Add Song") %>
+        </div>
+
+        <% end %>
+      </div>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+
     <% if @songs.empty? %>
     <p>No Songs!</p>
     <% end %>
@@ -9,38 +46,6 @@
       <%= link_to song.name, song %> by: <%= song.artist %>
     </p>
     <% end %>
+
+
   </div>
-
-  <button type="button" name="openModal"><a data-open="newSong">New Song</a></button>
-
-  <div class="reveal" id="newSong" data-reveal>
-    <div class="song-form columns large-6 small-12">
-      <h3>New Song Form</h3>
-      <%= form_for(@song) do |f| %>
-
-      <div class="field">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-      </div>
-
-      <div class="field">
-        <%= f.label :artist %>
-        <%= f.text_field :artist %>
-      </div>
-
-      <div class="field">
-        <%= f.label :description %>
-        <%= f.text_field :description %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit(value="Add Song") %>
-      </div>
-
-      <% end %>
-    </div>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-</div>
