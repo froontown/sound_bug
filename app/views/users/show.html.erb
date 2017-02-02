@@ -6,6 +6,7 @@
     <br/>
 
     <h4>Songs Created:</h4>
+
     <% unless @user.songs.empty? %>
       <ul>
         <% @user.songs.each do |song| %>
@@ -18,6 +19,6 @@
   <div class="columns large-4 small-12" id="edit-form">
     <br/>
     <br/>
-    <p class="image"><%= image_tag @user.avatar %></p>
+    <p class="image"><%= image_tag @user.profile_photo %></p>
   </div>
 </div>
