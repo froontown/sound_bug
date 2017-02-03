@@ -20,14 +20,32 @@ body {
   font-size: 40px;
 }
 
+#title-name:hover {
+  color: white;
+}
+
 .active {
   font-size: 50px;
+}
+
+h1 {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 30px;
+}
+
+h3 {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 24px;
 }
 
 a {
   color: white;
   font-weight: bold;
   font-size: 25px;
+}
+
+a:hover {
+  color: #6b6c6d;
 }
 
 .songlist {
@@ -47,4 +65,8 @@ a {
   background-color: white;
   border: 2px solid grey;
   color: black;
+}
+
+#new-song {
+  font-family: 'Fredoka One', sans-serif;
 }
