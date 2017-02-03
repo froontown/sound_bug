@@ -16,24 +16,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
-  <div class="top-bar">
-    <div class="top-bar-left">
-      <div class="nav">
-        <div class="title">
-          <p class="active"><a href="/songs" color="black;">Sound Bug</a></p>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <div class="nav">
+          <div class="title">
+            <p class="active"><a id="title-name" href="/songs" color="black;">Sound Bug</a></p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="top-bar-right">
-      <form id="search-form" action="/songs" accept-charset="UTF-8" method="get">
-        <ul class="menu">
-          <li><input type="text" name="term" id="search-field" placeholder="Search"></li>
-          <li><button type="submit" class="button" value="Search" id="search-button" data-disable-with="Search">Search</button></li>
-        </ul>
-      </form>
+      <div class="top-bar-right">
+        <form id="search-form" action="/songs" accept-charset="UTF-8" method="get">
+          <ul class="menu">
+            <li><input type="text" name="term" id="search-field" placeholder="Search"></li>
+            <li><button type="submit" class="button" value="Search" id="search-button" data-disable-with="Search">Search</button></li>
+          </ul>
+        </form>
+      </div>
     </div>
-  </div>
 
     <div id="user-email">
       <% if user_signed_in? %>
