@@ -33,7 +33,7 @@ RSpec.feature "User creates a new bar" do
   scenario "failed song creation" do
     login_as_user(user_one)
     visit songs_path
-    expect(page).to have_content "New Songs Form"
+    expect(page).to have_content "New Song Form"
 
     fill_in "Artist", with: "The White Stripes"
     fill_in "Description", with: "An awesome song that uses random quotes for lyrics!"
@@ -86,8 +86,7 @@ feature "can delete a song" do
     expect(page).to have_content("Seven Nation Army")
 
     click_on "Seven Nation Army"
-    click_on "Edit Song"
-    click_on "Delete"
+    click_on "Delete Song"
 
     expect(page).to_not have_content("Seven Nation Army")
   end
