@@ -42,3 +42,22 @@ Notes:
 * What is a dynamic User experience? Why React? (Smoother experience)
 * Think like: one sentence describing the technology for non-tech, why you use that technology, what it does for your app
 * Try focusing your story from audio engineering to gaming to web development
+
+***************************
+
+- Video games and music
+- Broke my dad's stereo: became an audio engineer
+- Ended up at LucasArts to become an video game audio engineer, but became a QA Lead instead
+- Loved the game development process
+- Admired my teammates' creativity and problem solving focus
+- Wanted to get back to creating my own stuff
+- Moved back from California and discovered Launch
+- Loved learning about code at Launch
+- Had an idea: Twitter for Musicians. SoundBug!
+- Decided to break it down to manageable components
+- My breakable toy focuses on the sharing, commenting, and voting aspect of SoundBug
+- Users can share songs through several forms: simple text, uploading audio files via Wavesurfer, pulling from the Spotify API for a 30 second clip, or sharing a youtube video
+- The React-based front end bypasses the need to constantly reload the page, allowing for a smooth, dynamic User experience
+- The rails backend will store User information, the upvote/downvote scores for individual songs, and who created each song
+- The overall goal for SoundBug is to allow Users to create their own soundbites and nurture a creative, collaborative community
+- My project has been to lay down the groundwork for future expansions in my endeavor to creat what I imagine
