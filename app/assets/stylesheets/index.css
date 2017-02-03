@@ -16,15 +16,62 @@ body {
   color: white;
 }
 
+#title-name {
+  font-size: 50px;
+}
+
+#title-name:hover {
+  color: white;
+}
+
 .active {
   font-size: 50px;
 }
 
-a {
-  color: white;
-  weight: bold;
+h1 {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 30px;
 }
 
-.search-button {
+h3 {
   font-family: 'Fredoka One', sans-serif;
+  font-size: 24px;
+}
+
+a {
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+a:hover {
+  color: #6b6c6d;
+}
+
+.songs {
+  text-align: center;
+}
+
+.button {
+  font-family: 'Fredoka One', sans-serif;
+  border-radius: 24px;
+  background-color: grey;
+  border: 2px solid white;
+  color: white;
+}
+
+.button:hover {
+  font-family: 'Fredoka One', sans-serif;
+  background-color: white;
+  border: 2px solid grey;
+  color: black;
+}
+
+#new-song {
+  font-family: 'Fredoka One', sans-serif;
+  text-align: center;
+}
+
+#song-container {
+  text-align: center;
 }
