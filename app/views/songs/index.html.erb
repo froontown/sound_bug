@@ -1,8 +1,5 @@
 <div class="row container">
   <div class="songlist columns large-6 small-12">
-    <br>
-    <br>
-    <br>
 
     <button type="button" name="openModal"><a data-open="newSong">New Song</a></button>
 
@@ -35,17 +32,14 @@
       <button class="close-button" data-close aria-label="Close modal" type="button">
         <span aria-hidden="true">&times;</span>
       </button>
-    </div>
+    </div class="songlist">
+      <% if @songs.empty? %>
+        <p>No Songs!</p>
+        <% end %>
+        <% @songs.each do |song| %>
+        <p id="songs-index">
+          <%= link_to song.name, song %> by: <%= song.artist %>
+        </p>
+      <% end %>
   </div>
-
-    <% if @songs.empty? %>
-    <p>No Songs!</p>
-    <% end %>
-    <% @songs.each do |song| %>
-    <p id="songs-index">
-      <%= link_to song.name, song %> by: <%= song.artist %>
-    </p>
-    <% end %>
-
-
-  </div>
+</div>
