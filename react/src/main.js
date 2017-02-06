@@ -1,10 +1,13 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SongList from './components/SongList';
 
 $(function() {
-  ReactDOM.render(
-    <h1>Boo yaa</h1>,
-    document.getElementById('app')
-  );
+  if (document.getElementById('SongList')){
+    ReactDOM.render(
+      <SongList />,
+      document.getElementById('SongList')
+    );
+  }
 });

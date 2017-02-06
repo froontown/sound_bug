@@ -75,3 +75,11 @@ a:hover {
 #song-container {
   text-align: center;
 }
+
+.song-form-title {
+  color: black;
+}
+
+.field {
+  color: white;
+}

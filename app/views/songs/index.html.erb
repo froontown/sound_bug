@@ -5,12 +5,17 @@
     <a data-open="newSong">New Song</a>
   </button>
 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
+
   <br>
   <br>
 
   <div class="reveal" id="newSong" data-reveal>
     <div class="song-form columns large-6 small-12">
-      <h3>New Song Form</h3>
+      <div class="song-form-title">
+        <h3>New Song Form</h3>
+      </div>
+
       <%= form_for(@song) do |f| %>
 
         <div class="field">
@@ -49,5 +54,4 @@
       <%= link_to song.name, song %> by: <%= song.artist %>
     </p>
   <% end %>
-
 </div>
