@@ -1,53 +1,47 @@
+<div class="background-pic">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
 
-<body class="background-pic">
+  <br>
+  <br>
 
-  <div class="row">
-    <div class="row container" id="song-container">
-      <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
-
-      <br>
-      <br>
-
-      <div class="reveal" id="newSong" data-reveal>
-        <div class="song-form columns large-6 small-12">
-          <div class="song-form-title">
-            <h3>New Song Form</h3>
-          </div>
-
-          <%= form_for(@song) do |f| %>
-
-            <div class="field">
-              <%= f.label :name %>
-              <%= f.text_field :name %>
-            </div>
-
-            <div class="field">
-              <%= f.label :artist %>
-              <%= f.text_field :artist %>
-            </div>
-
-            <div class="field">
-              <%= f.label :description %>
-              <%= f.text_field :description %>
-            </div>
-
-            <div class="actions">
-              <%= f.submit(value="Add Song") %>
-            </div>
-
-          <% end %>
-        </div>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <div class="reveal" id="newSong" data-reveal>
+    <div class="song-form columns large-6 small-12">
+      <div class="song-form-title">
+        <h3>New Song Form</h3>
       </div>
-    </div>
 
-    <div class="songs">
-      <% if @songs.empty? %>
-        <p>No Songs!</p>
+      <%= form_for(@song) do |f| %>
+
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :artist %>
+          <%= f.text_field :artist %>
+        </div>
+
+        <div class="field">
+          <%= f.label :description %>
+          <%= f.text_field :description %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit(value="Add Song") %>
+        </div>
+
       <% end %>
-      <div id="SongList" data-id="<%= current_user %>"></div>
     </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
-</body>
+
+  <div class="songs">
+    <% if @songs.empty? %>
+      <p>No Songs!</p>
+    <% end %>
+    <div id="SongList" data-id="<%= current_user %>"></div>
+  </div>
+</div>

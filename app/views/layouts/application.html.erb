@@ -16,40 +16,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
-    <div class="top-bar small-12 columns">
-      <div class="top-bar-left">
-        <div class="nav">
-          <div class="title">
-            <p class="active"><a id="title-name" href="/songs" color="black;">Sound Bug</a></p>
+  <div data-sticky-container>
+    <div class="title-bar" data-sticky data-options="marginTop:0;anchor:stickhere;" style="width: 100%;">
+      <div class="top-bar small-12 columns">
+        <div class="top-bar-left">
+          <div class="nav">
+            <div class="title">
+              <p class="active"><a id="title-name" href="/songs" color="black;">Sound Bug</a></p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="top-bar-right">
-        <form id="search-form" action="/songs" accept-charset="UTF-8" method="get">
-          <ul class="menu">
-            <li><input type="text" name="term" id="search-field" placeholder="Search"></li>
-            <li><button type="submit" class="button" value="Search" id="search-button" data-disable-with="Search">Search</button></li>
-          </ul>
-        </form>
-      </div>
-      <div id="user-email">
-        <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.username %></strong>.
-        <%= link_to "View profile", user_path(current_user), :class => 'navbar-link' %> |
-        <%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-        <% else %>
-        <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-        <% end %>
-      </div>
-      <div class="new-song-link">
-        <button id="new-song" type="button" name="openModal">
-          <a data-open="newSong">New Song</a>
-        </button>
+        <div class="top-bar-right">
+          <form id="search-form" action="/songs" accept-charset="UTF-8" method="get">
+            <ul class="menu">
+              <li><input type="text" name="term" id="search-field" placeholder="Search"></li>
+              <li><button type="submit" class="button" value="Search" id="search-button" data-disable-with="Search">Search</button></li>
+            </ul>
+          </form>
+        </div>
+
+        <div id="user-email">
+          <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.username %></strong>.
+          <%= link_to "View profile", user_path(current_user), :class => 'navbar-link' %> |
+          <%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+          <% else %>
+          <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> |
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+          <% end %>
+        </div>
+
+        <div class="new-song-link">
+          <button id="new-song" type="button" name="openModal">
+            <a data-open="newSong">New Song</a>
+          </button>
+        </div>
       </div>
     </div>
+  </div>
 
 
   <body>

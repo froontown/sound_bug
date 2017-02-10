@@ -20,9 +20,7 @@ body {
   font-size: 40px;
   font-family: 'Fredoka One', sans-serif;
   color: white;
-  position: fixed;
   text-align: center;
-  padding: 10px;
 }
 
 #title-name {
@@ -135,4 +133,8 @@ a:hover {
   margin: auto;
   border-radius: 30px;
   border: 4px solid white;
+}
+
+.title-bar {
+  padding: 0px;
 }
