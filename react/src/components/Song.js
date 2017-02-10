@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class Song extends Component {
-  constructor(props) {
+  constructor(props){
     super(props);
-    this.state = {};
+    this.state= {};
   }
 
-  render() {
+  render(){
+
     let body = null;
     let upvote = null;
     let downvote = null;
@@ -14,33 +15,25 @@ class Song extends Component {
     let destroy = null;
 
     if (this.props.body) {
-      body = <p>{this.props.body}</p>;
+      body = <span>{this.props.body}</span>;
     }
 
     if (this.props.currentUser) {
-      upvote = <button className="upVote" onClick={this.props.handleUpvote}>Up</button>;
-      downvote = <button className="downVote" onClick={this.props.handleDownvote}>Down</button>;
+      upvote = <i className="fa fa-thumbs-o-up" aria-hidden="true" onClick={this.props.handleUpvote}></i>;
+      downvote = <i className="fa fa-thumbs-o-down" aria-hidden="true" onClick={this.props.handleDownvote}></i>;
     }
 
-    if (this.props.currentUser.id === this.props.user.id) {
-      edit =<div className="button">
-              <a href={`/songs/${this.props.barId}/${this.props.id}/edit`}>Edit</a>
-            </div>;
-      destroy = <div className="button" onClick={this.props.handleDelete} id={`destroy-${this.props.id}`}>Delete</div>;
+    if (this.props.currentUser.id === this.props.user_id || this.props.currentUser.admin === true) {
+      edit = <span> | <a href={`/songs/${this.props.id}/edit`}>Edit</a></span>;
+      destroy = <span> | <a href="javascript:;" onClick={this.props.handleDelete} id={`destroy-${this.props.id}`}>Delete</a></span>;
     }
 
-    let score = <p>{this.props.score}</p>;
+    let score = <span>{this.props.score}</span>;
 
     return(
-      <div>
-        {this.props.rating} | {body}
-        <div>
-          {score}
-          {upvote}
-          {downvote}
-          {edit}
-          {destroy}
-        </div>
+      <div className="list-item">
+        <a href={`songs/${this.props.id}`}>{this.props.song.name}</a>
+        <p>{upvote} | Score: {score} | {downvote} {edit} {destroy}</p>
       </div>
     );
   }

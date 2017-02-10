@@ -12,7 +12,7 @@ class Api::V1::VotesController < ApplicationController
 
   private
 
-  def load_review_and_vote
+  def load_song_and_vote
     @song = Song.find(params[:song_id])
     @user = current_user
     @vote = @song.votes.where(user: @user).first
@@ -26,7 +26,7 @@ class Api::V1::VotesController < ApplicationController
         @vote.update(value: new_value)
       end
     else
-      @vote = @user.votes.create(value: new_value, review: @review)
+      @vote = @user.votes.create(value: new_value, song: @song)
       @vote.save
     end
     @song.update_score!

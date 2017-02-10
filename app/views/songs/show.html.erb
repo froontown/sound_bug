@@ -1,43 +1,45 @@
-<div class="row container">
-  <div class="columns large-6 small-12">
+<body>
+  <div class="row container">
+    <div class="columns large-6 small-12">
 
-<h1> <%= @song.name %> </h1>
+  <h1> <%= @song.name %> </h1>
 
-  <div id="song-details">
-    <p> <%= @song.artist %> </p>
-  </div>
+    <div id="song-details">
+      <p> Created By: <br/><%= @song.artist %> </p>
+    </div>
 
-  <div id="song-details">
-    <p> <%= @song.description %> </p>
-  </div>
+    <div id="song-details">
+      <p> Description: <br/><%= @song.description %> </p>
+    </div>
 
-<% if @user.id == @song.user_id || @user.admin? %>
-  <div>
-    <%= link_to 'Edit Song', edit_song_path(@song) %> |
-    <%= link_to "Delete Song", @song, method: :delete, data: {confirm: "Are you sure?"} %>
-  </div>
-<% end %>
-
-<h3>Comments:</h3>
-
-<div>
-  <% unless @song.comments.nil? %>
-    <ul>
-      <% @song.comments.each do |comment| %>
-        <% if @user.id == comment.user_id || @user.admin? %>
-          <li> <%= comment.body %> |
-            <%= link_to 'Edit', edit_song_comment_path(@song, comment) %> |
-            <%= link_to 'Delete', song_comment_path(@song, comment), method: :delete, params:{comment: comment.id}, data: {confirm: "Are you sure?"} %>
-            <h1 class="item-title" data-id="<%= comment.id.to_s %>" id="<%= comment.id.to_s %>"</h1>
-          </li>
-        <% else %>
-          <li> <%= comment.rating %> | <%= comment.body %> </li>
-        <% end %>
-      <% end %>
-    </ul>
+  <% if @user.id == @song.user_id || @user.admin? %>
+    <div>
+      <%= link_to 'Edit Song', edit_song_path(@song) %> |
+      <%= link_to "Delete Song", @song, method: :delete, data: {confirm: "Are you sure?"} %>
+    </div>
   <% end %>
-  <div id="CommentList"></div>
-</div>
-<div>
-  <%= link_to "Add Comment", new_song_comment_path(@song) %>
-</div>
+
+  <h3>Comments:</h3>
+
+  <div>
+    <% unless @song.comments.nil? %>
+      <ul>
+        <% @song.comments.each do |comment| %>
+          <% if @user.id == comment.user_id || @user.admin? %>
+            <li> <%= comment.body %> |
+              <%= link_to 'Edit', edit_song_comment_path(@song, comment) %> |
+              <%= link_to 'Delete', song_comment_path(@song, comment), method: :delete, params:{comment: comment.id}, data: {confirm: "Are you sure?"} %>
+              <h1 class="item-title" data-id="<%= comment.id.to_s %>" id="<%= comment.id.to_s %>"</h1>
+            </li>
+          <% else %>
+            <li> <%= comment.rating %> | <%= comment.body %> </li>
+          <% end %>
+        <% end %>
+      </ul>
+    <% end %>
+    <div id="CommentList"></div>
+  </div>
+  <div>
+    <%= link_to "Add Comment", new_song_comment_path(@song) %>
+  </div>
+</body>

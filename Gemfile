@@ -15,6 +15,8 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'carrierwave'
 gem "fog"
+gem 'wavesurfer-rails'
+
 
 group :development do
   gem 'listen', '~> 3.0.5'

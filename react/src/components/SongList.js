@@ -1,49 +1,42 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Song from './Song';
 
-class SongList extends Component {
+class SongList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentUser: null;
-      users: [];
-      songs: [];
-      songId: null;
-    }
+      currentUser: null,
+      songs: [],
+      users: [],
+      songId: null
+    };
+    this.getSongs = this.getSongs.bind(this);
     this.handleVote = this.handleVote.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  handleVote(type, review) {
+  handleVote(type, id){
     let data = {
-      song_id: song.id,
-    }
-    let jSonStringData = JSON.stringify(data);
-    fetch(`api/v1/songs/${this.state.songId}`, {
+      song_id: id
+    };
+
+    let jsonStringData = JSON.stringify(data);
+    fetch(`/api/v1/songs/${id}/${type}`, {
       credentials: 'same-origin',
       method: 'post',
-      headers: { 'Content-Type': 'application/json'},
-      body: jSonStringData
+      headers: { 'Content-Type': 'application/json' },
+      body: jsonStringData
     })
     .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${responseStatusText})`,
-        error = new Error(errorMessage);
-        throw(error);
-      }
-    })
-    .then(response => {
-      fetch(`api/v1/songs/${this.state.songId}`, {
+      fetch(`/api/v1/songs`, {
         credentials: 'same-origin'
       })
       .then(response => {
         if (response.ok) {
           return response;
         } else {
-          let errorMessage = `${response.status} (${responseStatusText})`,
-          error = new Error(errorMessage);
+          let errorMessage = `${response.status}, (${response.statusText})`;
+          let error = new Error(errorMessage);
           throw(error);
         }
       })
@@ -53,7 +46,7 @@ class SongList extends Component {
         let newUsers = body.users;
         this.setState({
           songs: newSongs,
-          users: newUsers,
+          users: newUsers
         });
       });
     })
@@ -61,7 +54,7 @@ class SongList extends Component {
   }
 
   handleDelete(songId) {
-    fetch(`/api/v1/bars/${this.state.barId}`, {
+    fetch(`/api/v1/songs/${songId}`, {
       method: 'delete',
       credentials: 'same-origin'
     })
@@ -75,40 +68,41 @@ class SongList extends Component {
       }
     })
     .then(response => {
-      fetch(`/api/v1/songs/${this.state.songId}`,{
+      fetch(`/api/v1/songs`, {
         credentials: 'same-origin'
       })
-        .then(response => {
-          if (response.ok) {
-            return response;
-          } else {
-            let errorMessage = `${response.status}, (${response.statusText})`;
-            let error = new Error(errorMessage);
-            throw(error);
-          }
-        })
-        .then(response => response.json())
-        .then(body => {
-          let newSongs = body.songs;
-          let newUsers = body.users;
-          this.setState({
-            songs: newSongs,
-            users: newUsers,
-          });
+      .then(response => {
+        if(response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status}, (${response.statusText})`;
+          let error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        let newSongs = body.songs;
+        let newUsers = body.users;
+        this.setState({
+          songs: newSongs,
+          users: newUsers
         });
+      });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-  componentDidMount() {
-    let url = window.location.href.split("/");
-    let newSongId = url[url.length - 1];
+  componentDidMount(){
+    this.getSongs();
+    setInterval(this.getSongs, 10000);
+  }
 
-    fetch(`/api/v1/songs/${newSongId}`, {
-      credentials: 'same-origin'
-    })
-    .then(response => {
-      if (response.ok) {
+  getSongs(){
+    fetch('api/v1/songs', {
+      credentials: 'same-origin',
+    }).then(response => {
+      if(response.ok) {
         return response;
       } else {
         let errorMessage = `${response.status}, (${response.statusText})`;
@@ -117,71 +111,61 @@ class SongList extends Component {
       }
     })
     .then(response => response.json())
-    .then(body => {
-      let newCurrentUser = body.currentUser
-      let newSongs = body.songs
-      let newUsers = body.users
+    .then(response => {
+      let newCurrentUser = response.currentUser;
+      let newSongs = [];
+      response.songs.forEach(function(song){
+        newSongs.push(song);
+      });
+      newSongs;
       this.setState({
         currentUser: newCurrentUser,
-        songs: newSongs,
-        users: newUsers,
-        songId: newSongId
+        songs: newSongs
       });
     });
   }
 
-  render() {
-      let counter = -1
-      let songs
-      if (this.state.songs) {
-        songs = this.state.songs.map((song) => {
-          counter ++;
+  render(){
+    let counter = -1;
+    let songs = this.state.songs.map((song)=>{
+      counter ++;
+      let handleUpvote = () => {
+        return(
+          this.handleVote('up_vote', song.id)
+        );
+      };
+      let handleDownvote = () => {
+        return(
+          this.handleVote('down_vote', song.id)
+        );
+      };
 
-          let handleUpvote = () => {
-            return(
-              this.handleVote('up_vote', song)
-            )
-          }
+      let handleDeleteSong = () => {
+        return(
+          this.handleDelete(song.id)
+        );
+      };
 
-          let handleDownvote = () => {
-            return(
-              this.handleVote('down_vote', song)
-            )
-          }
-
-          let handleDeleteSong = () => {
-            return(
-              this.handleDelete(song.id)
-            )
-          }
-
-          let handleDelete = this.handleDelete
-          return(
-            <Song
-              key = {song.id}
-              id = {song.id}
-              body = {song.body}
-              score = {song.score}
-              user = {this.state.users[counter]}
-              handleUpvote = {handleUpvote}
-              handleDownvote = {handleDownvote}
-              handleDelete = {handleDeleteSong}
-              currentUser = {this.state.currentUser}
-              songId = {this.state.songId}
-            />
-          )
-        })
-      }
-      songs = songs.sort(function(a,b) {
-        return b.key - a.key
-      })
       return(
-        <div>
-          <h4>Songs</h4>
-          {songs}
-        </div>
-      )
-    }
+        <Song
+          key = {song.id}
+          song = {song}
+          id = {song.id}
+          handleUpvote = {handleUpvote}
+          handleDownvote = {handleDownvote}
+          handleDeleteSong = {handleDeleteSong}
+          currentUser = {this.state.currentUser}
+          score = {song.score}
+        />
+      );
+    });
+
+    return(
+      <div>
+        {songs}
+      </div>
+    );
+  }
 }
 
 export default SongList;

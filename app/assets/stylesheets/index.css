@@ -4,6 +4,12 @@ body {
   color: white;
 }
 
+.background-pic {
+  background: url('Soundboard.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .top-bar-left {
   padding-left: 10px;
 }
@@ -14,10 +20,14 @@ body {
   font-size: 40px;
   font-family: 'Fredoka One', sans-serif;
   color: white;
+  position: fixed;
+  text-align: center;
+  padding: 10px;
 }
 
 #title-name {
   font-size: 50px;
+  font-family: 'Fredoka One', sans-serif;
 }
 
 #title-name:hover {
@@ -42,10 +52,12 @@ a {
   color: white;
   font-weight: bold;
   font-size: 25px;
+  opacity: 1;
 }
 
 a:hover {
-  color: #6b6c6d;
+  color: white;
+  transform: scale(1.2);
 }
 
 .songs {
@@ -74,6 +86,18 @@ a:hover {
 
 #song-container {
   text-align: center;
+  background-color: #912b2b;
+  margin: 40px;
+  border-radius: 20px;
+  border: 3px solid white;
+  align: center;
+}
+
+#song-container:hover {
+  text-align: center;
+  color: black;
+  margin: 40px;
+  border-radius: 20px;
 }
 
 .song-form-title {
@@ -82,4 +106,33 @@ a:hover {
 
 .field {
   color: white;
+}
+
+.list-item {
+  background-color: grey;
+  padding: 50px;
+  margin: 30px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#user-email {
+  text-align: center;
+  padding: 10px;
+  font-family: 'Jura', sans-serif;
+  font-size: 16px;
+}
+
+.navbar-link {
+  font-family: 'Jura', sans-serif;
+  font-size: 20px;
+}
+
+.new-song-link {
+  text-align: center;
+  background-color: grey;
+  width: 25%;
+  margin: auto;
+  border-radius: 30px;
+  border: 4px solid white;
 }

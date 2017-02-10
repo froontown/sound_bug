@@ -12,11 +12,11 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag "vendor/modernizr" %>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
-    <div class="top-bar">
+    <div class="top-bar small-12 columns">
       <div class="top-bar-left">
         <div class="nav">
           <div class="title">
@@ -33,19 +33,24 @@
           </ul>
         </form>
       </div>
-    </div>
-
-    <div id="user-email">
-      <% if user_signed_in? %>
+      <div id="user-email">
+        <% if user_signed_in? %>
         Logged in as <strong><%= current_user.username %></strong>.
         <%= link_to "View profile", user_path(current_user), :class => 'navbar-link' %> |
         <%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %> |
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-      <% else %>
+        <% else %>
         <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> |
         <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-      <% end %>
+        <% end %>
+      </div>
+      <div class="new-song-link">
+        <button id="new-song" type="button" name="openModal">
+          <a data-open="newSong">New Song</a>
+        </button>
+      </div>
     </div>
+
 
   <body>
     <div class="row container">
