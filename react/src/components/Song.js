@@ -19,8 +19,8 @@ class Song extends Component {
     }
 
     if (this.props.currentUser) {
-      upvote = <button className="upVote" onClick={this.props.handleUpvote}>Up</button>
-      downvote = <button className="downVote" onClick={this.props.handleDownvote}>Down</button>
+      upvote = <button className="upVote" onClick={this.props.handleUpvote}>Up</button>;
+      downvote = <button className="downVote" onClick={this.props.handleDownvote}>Down</button>;
     }
 
     if (this.props.currentUser.id === this.props.user_id || this.props.currentUser.admin === true) {
