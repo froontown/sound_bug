@@ -3,7 +3,7 @@ body {
   background-color: #2d2a2a;
   color: white;
   height: 100%;
-  background: url('/assets/Soundboard.jpg') no-repeat center center fixed;
+  background: url(<%= asset_path 'Soundboard.jpg' %>) no-repeat center center fixed;
 }
 
 /*.background-pic {
