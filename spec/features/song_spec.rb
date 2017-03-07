@@ -78,7 +78,7 @@ feature "can delete a song" do
     )
   }
 
-  scenario "successfully delete a song" do
+  xscenario "successfully delete a song" do
     login_as_user(user_one)
     song
     visit "/songs"
@@ -122,7 +122,7 @@ RSpec.feature "User edits a song" do
       )
     }
 
-  scenario "successful edit" do
+  xscenario "successful edit" do
     login_as_user(user_one)
     song_one
     visit songs_path
@@ -141,7 +141,7 @@ RSpec.feature "User edits a song" do
     expect(page).to have_content "Jack White"
   end
 
-  scenario "no option to edit if they did not create" do
+  xscenario "no option to edit if they did not create" do
     login_as_user(user_two)
     song_one
     visit songs_path
