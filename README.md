@@ -4,6 +4,8 @@
 
 # Known Issues:
 
-* Background image doesn't load
+* Background image doesn't load on heroku
 * Search Bar stopped working once I added React
 * Can't get Wavesurfer.js to work yet
+
+Check it out at: https://soundbug.herokuapp.com/
