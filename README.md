@@ -69,6 +69,9 @@ localhost:3000
 
 Create an account, log in, and start adding songs to your hearts content!
 
+## .gif Demo: ![Alt Text](app/assets/images/SoundBug.gif)
+
+
 ### Known Issues:
 
 * Search Bar stopped working once I added React
